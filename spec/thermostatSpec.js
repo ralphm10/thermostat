@@ -7,7 +7,7 @@ describe("Thermostat", function() {
   });
 
   describe('starts at 20', function() {
-  it("should start when temperature is 20", function() {
+  it('should start with temperature of 20', function() {
     expect(thermostat['temperature']).toEqual(20);
   });
 });
@@ -31,9 +31,9 @@ describe("Thermostat", function() {
   });
 
   describe('throws an error', function() {
-    it('can throw a range error', function() {
+    it('throws error if user tries to reduce temp to below Minimum', function() {
 
-      expect(function() {thermostat.decrease(11)}).toThrowError("10 is minimum");
+      expect(function() {thermostat.decrease(11)}).toThrowError("Minimum temperature: 10");
     });
   });
 
