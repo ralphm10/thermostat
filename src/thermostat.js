@@ -1,15 +1,19 @@
 class Thermostat {
   constructor(){
-    this.temperature = 20
+    this.temperature = 20;
+    this.MINIUMUM_TEMP = 10;
   }
-  increase(number) {
-    return this.temperature += number;
+  getTemperature() {
+    return this.temperature
+  }
+  increase() {
+    return this.temperature += 1;
   }
 
-  decrease(number) {
-    this.temperature -= number;
+  decrease() {
+    this.temperature -= 1;
 
-    if (this.temperature < 10) {
+    if (this.temperature < this.MINIUMUM_TEMP) {
       this.temperature = 10;
       throw new Error("Minimum temperature: 10")
     }
