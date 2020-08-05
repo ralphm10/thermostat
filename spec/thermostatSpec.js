@@ -70,4 +70,24 @@ describe("Thermostat", function() {
     });
   });
 
+  describe('low energy usage', function() {
+    it('can return low usage', function() {
+      thermostat['temperature'] = 17;
+      expect(thermostat.energyUsage()).toEqual("low-usage");
+    });
+  });
+
+  describe('energy usage', function() {
+    it('can return medium usage', function() {
+      expect(thermostat.energyUsage()).toEqual("medium-usage");
+    });
+  });
+
+  describe('energy usage', function() {
+    it('can return high usage', function() {
+      thermostat['temperature'] = 26;
+      expect(thermostat.energyUsage()).toEqual("high-usage");
+    });
+  });
+
 });
