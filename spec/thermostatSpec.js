@@ -62,6 +62,13 @@ describe("Thermostat", function() {
     });
   });
 
+  describe('turn on power saving', function() {
+    it('can turn on power saving', function() {
+      thermostat.turnOnPowerSaving();
+      expect(thermostat.isPowerSaving()).toEqual(true);
+    });
+  });
+
   describe('reset temperature', function() {
     it('can turn be reset to 20 degrees', function() {
       thermostat.increase();
