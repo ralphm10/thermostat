@@ -34,4 +34,40 @@ describe("Thermostat", function() {
     });
   });
 
+  describe('start with power saving mode on', function() {
+    it('should start with power saving mode on', function() {
+      expect(thermostat.isPowerSaving()).toEqual(true);
+    });
+  });
+
+  describe('throws an error', function() {
+    it('throws error if user tries to increase temp above maximum in power save mode', function() {
+      thermostat['temperature'] = 25;
+      expect(function() {thermostat.increase()}).toThrowError("Maximum in power save mode: 25");
+    });
+  });
+
+  describe('throws an error', function() {
+    it('throws error if user tries to increase temp above maximum', function() {
+      thermostat['temperature'] = 32;
+      thermostat.turnOffPowerSaving();
+      expect(function() {thermostat.increase()}).toThrowError("Maximum: 32");
+    });
+  });
+
+  describe('turn off power saving', function() {
+    it('can turn off power saving', function() {
+      thermostat.turnOffPowerSaving();
+      expect(thermostat.isPowerSaving()).toEqual(false);
+    });
+  });
+
+  describe('reset temperature', function() {
+    it('can turn be reset to 20 degrees', function() {
+      thermostat.increase();
+      thermostat.reset();
+      expect(thermostat.getTemperature()).toEqual(20);
+    });
+  });
+
 });
