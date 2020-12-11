@@ -7,3 +7,8 @@ A simple thermostat modelled in JavaScript with a dynamic web interface using jQ
 ```
 > git clone https://github.com/ralphm10/thermostat
 > open index.html
+```
+
+## To run tests
+
+
